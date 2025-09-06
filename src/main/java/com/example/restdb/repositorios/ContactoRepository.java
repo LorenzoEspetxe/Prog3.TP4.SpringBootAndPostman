@@ -22,10 +22,17 @@ Con solo una línea de código (extends JpaRepository<Agenda, Long>), ya tienes 
 @Repository
 public interface ContactoRepository extends JpaRepository<Contacto, Long> {
 
+    // Esta consulta es estatica, armarla flexible
+
     // c) Obtener ítems que coincidan parcialmente con nombre o apellido (usando JPQL)
+
     @Query("SELECT a FROM Contacto a WHERE LOWER(a.nombre) LIKE LOWER(CONCAT('%', :filtro, '%')) OR LOWER(a.apellido) LIKE LOWER(CONCAT('%', :filtro, '%'))")
     public List<Contacto> findByNombreOrApellidoLike(@Param("filtro") String filtro); // Este es un metodo, pero no es necesario escribir public porque en una interfaz de por si son publicos los metodos.
+
     // sintaxis Spring: find + By + [nombreCampo] + [operador].
     // @Query(consulta) tipoRetorno<> nombreMetodo (@Param() tipoArgumento argumento)
+
+    // Crear una clase contactoORM donde uemso entityManager y EntityManagerFactory, de manera que le pasemos un String, y con ese string armar el query.
+
 
 }
