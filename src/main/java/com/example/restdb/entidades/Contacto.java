@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 @Data // getter, setter, toString, hashCode, equals.
 @NoArgsConstructor
 
-@Entity
+@Entity // Mapea la entidad como una tabla en la base de datos.
 public class Contacto {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Define id como la PK, que se autogenera.
     private Long id;
     private String nombre;
     private String apellido;

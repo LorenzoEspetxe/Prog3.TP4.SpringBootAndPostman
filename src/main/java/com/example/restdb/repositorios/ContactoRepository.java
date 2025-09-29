@@ -13,13 +13,13 @@ La interfaz ContactoRepository que extiende de JpaRepository ya tiene los métod
 
 findAll(): se encarga del punto (a) Obtener la totalidad de ítems.
 findById(Long id): se encarga del punto (b) Obtener un ítem específico por id.
-save(Agenda agenda): se encarga del punto (d) Insertar un nuevo ítem (si el ID no existe), y el (e) Actualizar un ítem existente (con un ID existente).
+save(Contacto contacto): se encarga del punto (d) Insertar un nuevo ítem (si el ID no existe), y el (e) Actualizar un ítem existente (con un ID existente).
 deleteById(Long id): se encarga del punto (f) Eliminar un ítem.
 
-Con solo una línea de código (extends JpaRepository<Agenda, Long>), ya tienes las funcionalidades básicas de CRUD implementadas.
+Con solo una línea de código (extends JpaRepository<Contacto, Long>), ya tienes las funcionalidades básicas de CRUD implementadas.
  */
 
-@Repository
+@Repository // componente de repositorio, que se encarga de la comunicación con la base de datos.
 public interface ContactoRepository extends JpaRepository<Contacto, Long> {
 
     // Esta consulta es estatica, armarla flexible
@@ -32,7 +32,8 @@ public interface ContactoRepository extends JpaRepository<Contacto, Long> {
     // sintaxis Spring: find + By + [nombreCampo] + [operador].
     // @Query(consulta) tipoRetorno<> nombreMetodo (@Param() tipoArgumento argumento)
 
-    // Crear una clase contactoORM donde uemso entityManager y EntityManagerFactory, de manera que le pasemos un String, y con ese string armar el query.
+    // Request del profe:
+    // Crear una clase contactoORM donde uso entityManager y EntityManagerFactory, de manera que le pasemos un String, y con ese string armar el query.
 
 
 }
